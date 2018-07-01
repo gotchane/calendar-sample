@@ -5,23 +5,49 @@
     = date
     - meeting = @meetings.find_or_initialize_by(start_time: date)
     - if meeting.id.nil?
-      %p
-        = hidden_field_tag "meeting[#{date}][start_time]", date
-      %p
-        = text_field_tag "meeting[#{date}][subject]"
-      %p
-        = text_field_tag "meeting[#{date}][ratio]"
-      %p
-        = text_field_tag "meeting[#{date}][content]"
+      = hidden_field_tag "meeting[#{date}][start_time]", date
+      %table
+        %tbody
+          %tr
+            - if date.monday?
+              %td
+                科目
+            %td
+              = text_field_tag "meeting[#{date}][subject]"
+          %tr
+            - if date.monday?
+              %td
+                時数調整
+            %td
+              = text_field_tag "meeting[#{date}][ratio]"
+          %tr
+            - if date.monday?
+              %td
+                コメント
+            %td
+              = text_field_tag "meeting[#{date}][content]"
     - else
       = fields_for "meeting[]", meeting do |meeting_fields|
-        %p
-          = meeting_fields.hidden_field :start_time
-        %p
-          = meeting_fields.text_field :subject
-        %p
-          = meeting_fields.text_field :ratio
-        %p
-          = meeting_fields.text_field :content
+        = meeting_fields.hidden_field :start_time
+        %table
+          %tbody
+            %tr
+              - if date.monday?
+                %td
+                  科目
+              %td
+                = meeting_fields.text_field :subject
+            %tr
+              - if date.monday?
+                %td
+                  時数調整
+              %td
+                = meeting_fields.text_field :ratio
+            %tr
+              - if date.monday?
+                %td
+                  コメント
+              %td
+                = meeting_fields.text_field :content
   = submit_tag
 
