@@ -8,7 +8,7 @@
       %span.calendar-title
         Week #{calendar.week_number} - #{calendar.end_week}
     = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view
-  %table.table.table-striped
+  %table.table.table-striped.simple-calendar-table
     %thead
       %tr
         - date_range.slice(0, 7).each do |day|

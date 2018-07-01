@@ -2,7 +2,8 @@
 
 = form_for :meeting, url: update_week_meetings_path, html: { method: :post } do
   = week_calendar do |date|
-    = date
+    %p.meeting-date
+      = date
     - meeting = @meetings.find_or_initialize_by(start_time: date)
     - if meeting.id.nil?
       = hidden_field_tag "meeting[#{date}][start_time]", date
@@ -13,7 +14,7 @@
               %td
                 科目
             %td
-              = text_field_tag "meeting[#{date}][subject]"
+              = select_tag "meeting[#{date}][subject]", options_for_select({"国語" => "国語", "算数" => "算数"})
           %tr
             - if date.monday?
               %td
@@ -36,7 +37,7 @@
                 %td
                   科目
               %td
-                = meeting_fields.text_field :subject
+                = meeting_fields.select :subject, options_for_select({"国語" => "国語", "算数" => "算数"}, selected: meeting.subject)
             %tr
               - if date.monday?
                 %td
@@ -50,4 +51,24 @@
               %td
                 = meeting_fields.text_field :content
   = submit_tag
+
+
+%h2 時数計算
+
+%table
+  %thead
+    %tr
+      %td
+      %td
+        実施時数
+      %td
+        予定時数残
+  %tbody
+    %tr
+      %td
+        国語
+      %td
+        1
+      %td
+        2
 

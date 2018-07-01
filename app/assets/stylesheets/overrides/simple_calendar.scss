@@ -1,0 +1,13 @@
+.simple-calendar-table table {
+  border-collapse:collapse;
+  border-spacing:0px;
+}
+
+.simple-calendar-table table > tbody > tr > td {
+  height: 50px;
+  border: #ccc 1px solid;
+}
+
+.meeting-date {
+  text-align: center;
+}
