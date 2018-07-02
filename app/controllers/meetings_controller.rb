@@ -57,7 +57,7 @@ class MeetingsController < ApplicationController
       @meeting = Meeting.find_or_initialize_by(start_time: week_meeting_params[key][:start_time].to_datetime)
       @meeting.update_attributes(week_meeting_params[key])
     end
-    redirect_to meetings_path, notice: 'OK'
+    redirect_to request.referrer
   end
 
   # DELETE /meetings/1

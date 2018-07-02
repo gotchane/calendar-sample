@@ -1,0 +1,64 @@
+japanese:
+  id: 1
+  name: 国語
+  name_en: japanese
+
+social_studies:
+  id: 2
+  name: 社会
+  name_en: social_studies
+
+arithmetic:
+  id: 3
+  name: 算数
+  name_en: arithmetic
+
+science:
+  id: 4
+  name: 理科
+  name_en: science
+
+living_environment_studies:
+  id: 5
+  name: 生活
+  name_en: living_environment_studies
+
+music:
+  id: 6
+  name: 音楽
+  name_en: music
+
+art_and_handicraft:
+  id: 7
+  name: 図画工作
+  name_en: art_and_handicraft
+
+home_economics:
+  id: 8
+  name: 家庭
+  name_en: home_economics
+
+physical_education:
+  id: 9
+  name: 体育
+  name_en: physical_education
+
+moral_education:
+  id: 10
+  name: 道徳
+  name_en: moral_education
+
+foreign_language_activities:
+  id: 11
+  name: 外国語活動
+  name_en: foreign_language_activities
+
+integrated_studies:
+  id: 12
+  name: 総合
+  name_en: integrated_studies
+
+special_activities:
+  id: 13
+  name: 特別活動
+  name_en: special_activities

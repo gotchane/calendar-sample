@@ -64,11 +64,12 @@
       %td
         予定時数残
   %tbody
-    %tr
-      %td
-        国語
-      %td
-        1
-      %td
-        2
+    - Subject.all.each do |subject|
+      %tr
+        %td
+          = subject.name
+        %td
+          = Meeting.where(subject: subject.name).count
+        %td
+          = SchoolHour.first.send(subject.name_en&.to_sym)
 

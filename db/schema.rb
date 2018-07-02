@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180701002150) do
+ActiveRecord::Schema.define(version: 20180701015954) do
 
   create_table "grades", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,24 @@ ActiveRecord::Schema.define(version: 20180701002150) do
     t.integer "arithmetic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "social_studies"
+    t.integer "science"
+    t.integer "living_environment_studies"
+    t.integer "music"
+    t.integer "art_and_handicraft"
+    t.integer "home_economics"
+    t.integer "physical_education"
+    t.integer "moral_education"
+    t.integer "foreign_language_activities"
+    t.integer "integrated_studies"
+    t.integer "special_activities"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name_en"
   end
 
 end
