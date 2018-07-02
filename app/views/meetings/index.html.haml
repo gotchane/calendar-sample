@@ -1,12 +1,15 @@
 %h1 Week Meetings
 
+- start_date = Date.parse('2018-04-01')
+- end_date = Date.parse('2019-03-31')
 = form_for :meeting, url: update_week_meetings_path, html: { method: :post } do
   = week_calendar do |date|
     %p.meeting-date
       = date
     - meeting = @meetings.find_or_initialize_by(start_time: date)
     - if meeting.id.nil?
-      = hidden_field_tag "meeting[#{date}][start_time]", date
+      - if date >= start_date && date <= end_date
+        = hidden_field_tag "meeting[#{date}][start_time]", date
       %table
         %tbody
           %tr
@@ -14,22 +17,26 @@
               %td
                 科目
             %td
-              = select_tag "meeting[#{date}][subject]", options_for_select({"国語" => "国語", "算数" => "算数"})
+              - if date >= start_date && date <= end_date
+                = select_tag "meeting[#{date}][subject]", options_for_select({"国語" => "国語", "算数" => "算数"})
           %tr
             - if date.monday?
               %td
                 時数調整
             %td
-              = text_field_tag "meeting[#{date}][ratio]"
+              - if date >= start_date && date <= end_date
+                = text_field_tag "meeting[#{date}][ratio]"
           %tr
             - if date.monday?
               %td
                 コメント
             %td
-              = text_field_tag "meeting[#{date}][content]"
+              - if date >= start_date && date <= end_date
+                = text_field_tag "meeting[#{date}][content]"
     - else
       = fields_for "meeting[]", meeting do |meeting_fields|
-        = meeting_fields.hidden_field :start_time
+        - if date > start_date
+          = meeting_fields.hidden_field :start_time
         %table
           %tbody
             %tr
@@ -37,19 +44,22 @@
                 %td
                   科目
               %td
-                = meeting_fields.select :subject, options_for_select({"国語" => "国語", "算数" => "算数"}, selected: meeting.subject)
+                - if date >= start_date && date <= end_date
+                  = meeting_fields.select :subject, options_for_select({"国語" => "国語", "算数" => "算数"}, selected: meeting.subject)
             %tr
               - if date.monday?
                 %td
                   時数調整
               %td
-                = meeting_fields.text_field :ratio
+                - if date >= start_date && date <= end_date
+                  = meeting_fields.text_field :ratio
             %tr
               - if date.monday?
                 %td
                   コメント
               %td
-                = meeting_fields.text_field :content
+                - if date >= start_date && date <= end_date
+                  = meeting_fields.text_field :content
   = submit_tag
 
 
