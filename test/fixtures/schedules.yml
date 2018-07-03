@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_mon: MyString
+  first_tue: MyString
+  second_mon: MyString
+  second_tue: MyString
+
+two:
+  first_mon: MyString
+  first_tue: MyString
+  second_mon: MyString
+  second_tue: MyString

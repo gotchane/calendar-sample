@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180701015954) do
+ActiveRecord::Schema.define(version: 20180702100528) do
 
   create_table "grades", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20180701015954) do
     t.datetime "updated_at", null: false
     t.string "subject"
     t.string "ratio"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "first_mon"
+    t.string "first_tue"
+    t.string "second_mon"
+    t.string "second_tue"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "school_hours", force: :cascade do |t|

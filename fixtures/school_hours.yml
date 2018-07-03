@@ -14,3 +14,20 @@ grade_1:
   foreign_language_activities:
   integrated_studies:
   special_activities: 34
+
+grade_2:
+  id: 2
+  grade_id: 2
+  japanese: 306
+  social_studies:
+  arithmetic: 136
+  science:
+  living_environment_studies: 102
+  music: 68
+  art_and_handicraft: 68
+  home_economics:
+  physical_education: 102
+  moral_education: 34
+  foreign_language_activities:
+  integrated_studies:
+  special_activities: 34
